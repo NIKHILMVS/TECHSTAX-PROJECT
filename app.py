@@ -13,7 +13,7 @@ def message():
     if request.headers['Content-Type']=='application/json':
         info=json.dumps(request.json)
         print(info)
-        print("Hi, just testing!")
+        print("Hi, just testing! 2nd time")
         return info
     
 @app.route('/jsonobj')
