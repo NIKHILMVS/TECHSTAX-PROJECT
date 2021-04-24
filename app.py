@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import json
 from flask import request
-
+from flask import jsonify
 app=Flask(__name__)
 
 @app.route('/')
@@ -12,7 +12,11 @@ def home():
 def message():
     if request.headers['Content-Type']=='application/json':
         return json.dumps(request.json)
-    
+
+@app.route('/jsonobj')
+def jsonobj():
+   return jsonify({"sale_price":5, "actual_price" : 50, "typeofattire" : "T-Shirt", "brand" : "Nike"})
+
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=8000)
