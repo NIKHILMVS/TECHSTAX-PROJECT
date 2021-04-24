@@ -11,8 +11,10 @@ def home():
 @app.route('/github',methods=['POST'])
 def message():
     if request.headers['Content-Type']=='application/json':
-        return json.dumps(request.json)
-
+        info=json.dumps(request.json)
+        print(info)
+        return info
+    
 @app.route('/jsonobj')
 def jsonobj():
    return jsonify({"sale_price":5, "actual_price" : 50, "typeofattire" : "T-Shirt", "brand" : "Nike"})
